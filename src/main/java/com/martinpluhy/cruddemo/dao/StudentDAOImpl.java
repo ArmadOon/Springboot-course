@@ -10,10 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class StudentDAOImpl implements StudentDAO{
+public class StudentDAOImpl implements StudentDAO {
 
     // define field for entity manager
     private final EntityManager entityManager;
+
     // inject entity manager using constructor injection
     @Autowired
     public StudentDAOImpl(EntityManager entityManager) {
@@ -38,6 +39,13 @@ public class StudentDAOImpl implements StudentDAO{
         TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student", Student.class);
         // return query results
 
+        return theQuery.getResultList();
+    }
+
+    @Override
+    public List<Student> findByLastName(String theLastName) {
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student WHERE lastName=:theData", Student.class);
+        theQuery.setParameter("theData",theLastName);
         return theQuery.getResultList();
     }
 
