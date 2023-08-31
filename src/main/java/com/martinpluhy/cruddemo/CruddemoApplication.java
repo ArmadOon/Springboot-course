@@ -22,11 +22,18 @@ public class CruddemoApplication {
             // createStudent(studentDAO);
             // createMultipleStudents(studentDAO);
             // readStudent(studentDAO);
-            //queryForStudents(studentDAO);
-            //queryForStudentsByLastName(studentDAO, "Babica");
-            //updateStudent(studentDAO,1,"Johnathan");
-            removeStudent(studentDAO,2);
+            // queryForStudents(studentDAO);
+            // queryForStudentsByLastName(studentDAO, "Babica");
+            // updateStudent(studentDAO,1,"Johnathan");
+            // removeStudent(studentDAO,2);
+            deleteAllStudents(studentDAO);
         };
+    }
+
+    private void deleteAllStudents(StudentDAO studentDAO) {
+        System.out.println("Deleting all students");
+        int numRowsDeleted = studentDAO.deleteAll();
+        System.out.println("deleted row count: "+ numRowsDeleted);
     }
 
     private void updateStudent(StudentDAO studentDAO, int studentId, String firstName) {
