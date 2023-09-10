@@ -1,6 +1,5 @@
 package com.martinpluhy.demo.rest;
 
-import com.martinpluhy.demo.dao.EmployeeDAO;
 import com.martinpluhy.demo.entity.Employee;
 import com.martinpluhy.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;

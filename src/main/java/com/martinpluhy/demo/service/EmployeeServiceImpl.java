@@ -1,6 +1,5 @@
 package com.martinpluhy.demo.service;
 
-import com.martinpluhy.demo.dao.EmployeeDAO;
 import com.martinpluhy.demo.entity.Employee;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
