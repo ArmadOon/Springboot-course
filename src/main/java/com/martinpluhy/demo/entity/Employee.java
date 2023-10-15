@@ -11,15 +11,20 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "email")
     private String email;
-    // define constructors
 
+
+    // define constructors
     public Employee() {
+
     }
 
     public Employee(String firstName, String lastName, String email) {
@@ -28,7 +33,7 @@ public class Employee {
         this.email = email;
     }
 
-    //getters and setters
+    // define getter/setter
 
     public int getId() {
         return id;
@@ -62,10 +67,7 @@ public class Employee {
         this.email = email;
     }
 
-
-    // toString
-
-
+    // define toString
     @Override
     public String toString() {
         return "Employee{" +
@@ -76,3 +78,7 @@ public class Employee {
                 '}';
     }
 }
+
+
+
+
