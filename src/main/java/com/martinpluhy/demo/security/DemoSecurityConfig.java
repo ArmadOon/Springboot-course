@@ -29,7 +29,7 @@ public class DemoSecurityConfig {
         UserDetails susan = User.builder()
                 .username("susan")
                 .password("{noop}test123")
-                .roles("EMPLOYEE", "MANAGER")
+                .roles("EMPLOYEE", "MANAGER", "ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(john, mary, susan);
     }
@@ -42,7 +42,7 @@ public class DemoSecurityConfig {
                         .requestMatchers(HttpMethod.GET, "api/employees/**").hasRole("EMPLOYEE")
                         .requestMatchers(HttpMethod.POST, "api/employees").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.PUT, "api/employees").hasRole("MANAGER")
-                        .requestMatchers(HttpMethod.DELETE, "api/employees").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "api/employees/**").hasRole("ADMIN")
         );
 
         // use HTTP basic authentication
