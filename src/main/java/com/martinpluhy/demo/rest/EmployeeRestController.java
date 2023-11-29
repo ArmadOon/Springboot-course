@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private final EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     @Autowired
     public EmployeeRestController(EmployeeService theEmployeeService) {
@@ -47,7 +47,9 @@ public class EmployeeRestController {
 
         theEmployee.setId(0);
 
-        return employeeService.save(theEmployee);
+        Employee dbEmployee = employeeService.save(theEmployee);
+
+        return dbEmployee;
     }
 
     // add mapping for PUT /employees - update existing employee
@@ -55,7 +57,9 @@ public class EmployeeRestController {
     @PutMapping("/employees")
     public Employee updateEmployee(@RequestBody Employee theEmployee) {
 
-        return employeeService.save(theEmployee);
+        Employee dbEmployee = employeeService.save(theEmployee);
+
+        return dbEmployee;
     }
 
     // add mapping for DELETE /employees/{employeeId} - delete employee
